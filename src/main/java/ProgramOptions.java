@@ -60,9 +60,10 @@ public class ProgramOptions {
         parseMap.put(CommandLineOptions.OUTPUT_TYPE.str, new Runnable() {
             @Override
             public void run() {
-                outputType = OutputType.parse(args[parsedIndex]);
+                outputType = OutputType.parse(args[parsedIndex++]);
                 log.debug("Output type: " + outputType.str);
-                parsedIndex++;
+                outputPath = args[parsedIndex++];
+                log.debug("Output path: " + outputPath);
             }
         });
 
@@ -91,7 +92,7 @@ public class ProgramOptions {
             throw new RuntimeException("No manipulation methods selected.");
         }
 
-        while (!args[parsedIndex].startsWith("-")) {
+        while (parsedIndex < args.length && !args[parsedIndex].startsWith("-")) {
             manipulationMethods.add(args[parsedIndex]);
             parsedIndex++;
         }
@@ -101,7 +102,7 @@ public class ProgramOptions {
         Map<String, Runnable> parseMap = createParseMap();
         log.debug("Parsing arguments " + Arrays.toString(args));
 
-        while (args.length > parsedIndex + 1) {
+        while (args.length > parsedIndex) {
             log.debug("Parsing argument " + args[parsedIndex]);
             if (parseMap.containsKey(args[parsedIndex])) {
                 parseMap.get(args[parsedIndex++]).run();
@@ -111,12 +112,7 @@ public class ProgramOptions {
             }
         }
 
-        if (parsedIndex >= args.length) {
-            log.error("Failed to parse arguments, expected output file path as the last argument.");
-            throw new RuntimeException("Expected output file st the last argument.");
-        }
         log.debug("Successfully parsed all arguments.");
-        outputPath = args[parsedIndex];
     }
 
 }

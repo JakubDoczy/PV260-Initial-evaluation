@@ -96,17 +96,15 @@ public class DaTool {
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
-        /*if (args.length < 7) {
+
+        if (args.length < 7) {
             System.out.println("Missing arguments.");
             System.out.println("Expecting -d [DATASETLOCATION] -m [MANIPULATIONMETHODS] -o [OUTPUTTYPE] [OUTPUTFILE]");
             return;
-        }*/
+        }
 
-        /*args = new String[]{"-d", "file:///home/jakub/University/Projects/da_tool/src/main/resources/test_data.txt", "-m", "missing_email", "average_paid_price"
-                , "-o",  "plain",  "/home/jakub/University/Projects/da_tool/results.txt"};
-        */
-        args = new String[]{"-m", "missing_address", "total_price_pa", "-d", "file:///home/jakub/University/Projects/da_tool/src/main/resources/test_data.txt"
-                , "-o",  "xml",  "/home/jakub/University/Projects/da_tool/results.txt"};
+        /*args = new String[]{"-m", "missing_address", "total_price_pa", "-d", "file:///home/jakub/University/Projects/da_tool/src/main/resources/test_data.txt"
+                , "-o",  "xml",  "/home/jakub/University/Projects/da_tool/results.txt"};*/
 
         log.debug("Calling Program options to parse command line arguments.");
         ProgramOptions options = new ProgramOptions(args);

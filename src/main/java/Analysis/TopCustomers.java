@@ -67,7 +67,7 @@ public class TopCustomers implements AnalyticalMethod<Order, OrderAnalyser>{
         }
 
         List<Map.Entry<Customer, Long>> topCustomers = maxList.getSortedData();
-        String header = "Top customers";
+        String header = "Top customers" + System.lineSeparator();
         os.write(header.getBytes());
 
         for (int i = 0; i < topCustomers.size(); i++) {

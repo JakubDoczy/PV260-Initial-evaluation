@@ -42,7 +42,7 @@ public class MaxList<T> {
             return;
         }
 
-        for (int i = sortedData.size() - 1; i > 1; i++) {
+        for (int i = sortedData.size() - 1; i > 1; i--) {
             if (comparator.compare(sortedData.get(i - 1), sortedData.get(i)) >= 0) {
                 return;
             }
