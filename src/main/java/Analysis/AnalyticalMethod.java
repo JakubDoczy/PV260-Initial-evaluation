@@ -1,4 +1,6 @@
-import Data.Dataset;
+package Analysis;
+
+import Analysis.Data.Dataset;
 import Writer.Reportable;
 
 /**

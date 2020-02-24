@@ -1,5 +1,7 @@
-import Data.Order;
-import Data.OrderStatus;
+package Analysis;
+
+import Analysis.Data.Order;
+import Analysis.Data.OrderStatus;
 import ReportFormatter.DefaultMapReportCreator;
 import ReportFormatter.TableFormatter;
 

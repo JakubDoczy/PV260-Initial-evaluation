@@ -4,7 +4,11 @@ import org.slf4j.LoggerFactory;
 
 import java.util.*;
 
-
+/**
+ * Global options of the program.
+ *
+ * TODO: split this class into parser and data holder
+ */
 public class ProgramOptions {
 
     private final static Logger log = LoggerFactory.getLogger(ProgramOptions.class);
@@ -36,7 +40,7 @@ public class ProgramOptions {
         parseArgs();
     }
 
-    public Map<String, Runnable> createParseMap() {
+    private Map<String, Runnable> createParseMap() {
         Map<String, Runnable> parseMap = new HashMap<>();
         parseMap.put(CommandLineOptions.DATASET_LOCATION.str, new Runnable() {
             @Override

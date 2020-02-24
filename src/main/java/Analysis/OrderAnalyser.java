@@ -1,5 +1,7 @@
-import Data.Dataset;
-import Data.Order;
+package Analysis;
+
+import Analysis.Data.Dataset;
+import Analysis.Data.Order;
 
 import java.util.ArrayList;
 import java.util.Calendar;

@@ -1,4 +1,4 @@
-package Data;
+package Analysis.Data;
 
 import java.io.IOException;
 import java.io.InputStream;

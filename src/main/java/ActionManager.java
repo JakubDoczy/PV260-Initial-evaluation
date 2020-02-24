@@ -1,4 +1,7 @@
-import Data.Dataset;
+import Analysis.Analyser;
+import Analysis.AnalyticalMethod;
+import Analysis.Data.Dataset;
+import Analysis.DatasetFilter;
 import Writer.ReportWriter;
 
 import java.util.ArrayList;
@@ -16,11 +19,11 @@ import org.slf4j.LoggerFactory;
  * FAQ:
  * Q: why not give dataset to method directly? A: We would have to iterate multiple
  * times through data - each method would iterate over data independently. By using
- * Analyser we can (partially) avoid this - AnalyticalMethods subscribe callbacks for data.
+ * Analysis.Analyser we can (partially) avoid this - AnalyticalMethods subscribe callbacks for data.
  * Q: But what about parallelism? A: You win some you loose some :)
  *
- * @param <T> Data
- * @param <A> Analyser
+ * @param <T> Analysis.Data
+ * @param <A> Analysis.Analyser
  */
 public class ActionManager <T, A extends Analyser<T, Dataset<T>>> {
 
@@ -36,8 +39,8 @@ public class ActionManager <T, A extends Analyser<T, Dataset<T>>> {
     /**
      * Created action manager that uses and changes dataset.
      *
-     * @param dataset Data for analysis.
-     * @param analyserSupplier Analyser factory.
+     * @param dataset Analysis.Data for analysis.
+     * @param analyserSupplier Analysis.Analyser factory.
      * @param reportWriter Writes report.
      */
     public ActionManager(Dataset<T> dataset, Supplier<A> analyserSupplier, ReportWriter reportWriter) {

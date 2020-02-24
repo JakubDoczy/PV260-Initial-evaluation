@@ -1,3 +1,5 @@
+package Analysis;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -36,6 +38,10 @@ public class MaxList<T> {
      * Moves last value to correct position.
      */
     private void fixOrder() {
+        if (sortedData.isEmpty()) {
+            return;
+        }
+
         for (int i = sortedData.size() - 1; i > 1; i++) {
             if (comparator.compare(sortedData.get(i - 1), sortedData.get(i)) >= 0) {
                 return;
@@ -45,7 +51,7 @@ public class MaxList<T> {
     }
 
     /**
-     * Adds value if MaxList has < maxSize elements.
+     * Adds value if Analysis.MaxList has < maxSize elements.
      * If not but value is larger than currently held minimal element,
      * minimal element is replaced by value.
      *

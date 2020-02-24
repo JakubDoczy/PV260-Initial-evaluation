@@ -1,4 +1,4 @@
-package Data;
+package Analysis.Data;
 
 public class Customer {
     private String email;

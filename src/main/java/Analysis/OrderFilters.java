@@ -1,4 +1,6 @@
-import Data.Order;
+package Analysis;
+
+import Analysis.Data.Order;
 
 import java.util.function.Function;
 

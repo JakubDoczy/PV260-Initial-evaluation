@@ -1,4 +1,8 @@
-import Data.Order;
+import Analysis.Data.Order;
+import Analysis.OrderAnalMethods;
+import Analysis.OrderAnalyser;
+import Analysis.OrderFilters;
+import Analysis.Data.OrdersDatasetImpl;
 import Writer.ReportWriter;
 import org.apache.log4j.BasicConfigurator;
 import org.slf4j.Logger;
@@ -17,6 +21,7 @@ public class DaTool {
 
     private final static Logger log = LoggerFactory.getLogger(DaTool.class);
 
+    // opens url and calls parse
     private static OrdersDatasetImpl parseOrdersDataset(String inputUrl) {
         OrdersDatasetImpl ordersDataset = new OrdersDatasetImpl();
         OrderParser orderParser = new OrderParser();
@@ -39,12 +44,13 @@ public class DaTool {
         try {
             orderParser.parseCSV(is, orderConsumer);
         } catch (IOException e) {
-            throw new RuntimeException("Failed parse orders from " + inputUrl, e);
+            throw new RuntimeException("Failed to parse orders from " + inputUrl, e);
         }
 
         return ordersDataset;
     }
 
+    // creates map of method names and registration actions
     private static Map<String, Runnable> createRegistrationMap(ActionManager<Order, OrderAnalyser> actionManager) {
         Map<String, Runnable> map = new HashMap<>();
 
@@ -69,6 +75,7 @@ public class DaTool {
         return map;
     }
 
+    // parses data manipulation methods and registers them in actionManager
     private static void registerOrderManipulationMethods(List<String> unparsedMethods, ActionManager<Order, OrderAnalyser> actionManager)  {
         Map<String, Runnable> registrationMap = createRegistrationMap(actionManager);
 
@@ -95,8 +102,11 @@ public class DaTool {
             return;
         }*/
 
-        args = new String[]{"-d", "file:///home/jakub/University/Projects/da_tool/src/main/resources/test_data.txt", "-m", "missing_email", "average_paid_price"
+        /*args = new String[]{"-d", "file:///home/jakub/University/Projects/da_tool/src/main/resources/test_data.txt", "-m", "missing_email", "average_paid_price"
                 , "-o",  "plain",  "/home/jakub/University/Projects/da_tool/results.txt"};
+        */
+        args = new String[]{"-m", "missing_address", "total_price_pa", "-d", "file:///home/jakub/University/Projects/da_tool/src/main/resources/test_data.txt"
+                , "-o",  "xml",  "/home/jakub/University/Projects/da_tool/results.txt"};
 
         log.debug("Calling Program options to parse command line arguments.");
         ProgramOptions options = new ProgramOptions(args);

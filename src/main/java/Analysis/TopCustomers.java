@@ -1,5 +1,7 @@
-import Data.Customer;
-import Data.Order;
+package Analysis;
+
+import Analysis.Data.Customer;
+import Analysis.Data.Order;
 
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
@@ -20,8 +22,8 @@ public class TopCustomers implements AnalyticalMethod<Order, OrderAnalyser>{
         }
     };
 
-    Map<Customer, Long> customerOrders;
-    MaxList<Map.Entry<Customer, Long>> maxList;
+    private Map<Customer, Long> customerOrders;
+    private MaxList<Map.Entry<Customer, Long>> maxList;
 
     public TopCustomers(int n) {
         customerOrders = new HashMap<>();

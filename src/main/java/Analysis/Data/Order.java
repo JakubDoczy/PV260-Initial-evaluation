@@ -1,4 +1,4 @@
-package Data;
+package Analysis.Data;
 
 import java.util.Date;
 
@@ -9,7 +9,7 @@ public class Order {
     private int totalPrice;
     private OrderStatus orderStatus;
 
-    Order(int id) {
+    public Order(int id) {
         this.id = id;
     }
 

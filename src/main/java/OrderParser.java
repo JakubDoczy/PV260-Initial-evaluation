@@ -1,6 +1,6 @@
-import Data.Order;
-import Data.OrderStatus;
-import Data.Parser;
+import Analysis.Data.Order;
+import Analysis.Data.OrderStatus;
+import Analysis.Data.Parser;
 
 import java.io.BufferedReader;
 import java.io.IOException;

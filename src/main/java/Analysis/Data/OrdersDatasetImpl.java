@@ -1,5 +1,7 @@
-import Data.Dataset;
-import Data.Order;
+package Analysis.Data;
+
+import Analysis.Data.Dataset;
+import Analysis.Data.Order;
 
 import java.util.*;
 import java.util.function.Consumer;
